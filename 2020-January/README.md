@@ -61,7 +61,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv4_connection
 ```
 
 #### Cisco Syntax (executed):
-ip access-list extended wan_inbound;
+ip access-list extended wan_inbound;  
 permit tcp any any 10.10.10.24 0.0.0.0
 
 #### Note:
@@ -99,7 +99,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv4_connection
 }
 ```
 #### Cisco Syntax (executed):
-ip access-list extended wan_inbound; 
+ip access-list extended wan_inbound;  
 100 permit udp 10.10.10.22 0.0.0.0 eq 80 10.10.10.23 0.0.0.0
 
 #### Note:
@@ -140,9 +140,9 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv4_connection
 }
 ```
 #### Cisco Syntax (executed):
-ip access-list extended wan_inbound; 
-70 permit tcp 10.10.10.6 0.0.0.0 eq 80 10.10.10.7 0.0.0.0 eq 8080 time-range time_range_name2020-01-20-15-20-29; 
-time-range time_range_name2020-01-20-15-20-29; 
+ip access-list extended wan_inbound;  
+70 permit tcp 10.10.10.6 0.0.0.0 eq 80 10.10.10.7 0.0.0.0 eq 8080 time-range time_range_name2020-01-20-15-20-29;  
+time-range time_range_name2020-01-20-15-20-29;   
 absolute start 16:31 20 August 2018 end 16:39 20 August 2018
 
 #### Note:
@@ -175,7 +175,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv4_connection
 ```
 
 #### Cisco Syntax (executed):
-ip access-list extended wan_inbound;
+ip access-list extended wan_inbound;  
 permit tcp 10.10.10.25 0.0.0.0 any
 
 ### 6. Allow ipv6_connection – response requested complete
@@ -206,7 +206,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv6_connection
 ```
 
 #### Cisco Syntax (executed):
-ipv6 access-list wan_inbound_ipv6; 
+ipv6 access-list wan_inbound_ipv6;  
 permit tcp fda0:c496:2381:9cda::1/128 fda0:c496:2381:9cda::2/128
 
 ### 7. Allow ipv6_connection – response requested none
@@ -237,7 +237,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv6_connection
 ```
 
 #### Cisco Syntax (executed):
-ipv6 access-list wan_inbound_ipv6; 
+ipv6 access-list wan_inbound_ipv6;  
 permit tcp fda0:c496:2381:9cda::1/128 fda0:c496:2381:9cda::5/128
 
 ### 8. Allow ipv6_connection – insert rule number
@@ -271,7 +271,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv6_connection
 ```
 
 #### Cisco Syntax (executed):
-ipv6 access-list wan_inbound_ipv6; 
+ipv6 access-list wan_inbound_ipv6;  
 permit tcp fda0:c496:2381:9cda::1/128 fda0:c496:2381:9cda::10/128 sequence 100
 
 #### Note:
@@ -310,9 +310,9 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv6_connection
 ```
 
 #### Cisco Syntax (executed):
-ipv6 access-list wan_inbound_ipv6; 
-permit tcp fda0:c496:2381:9cda::1/128 fda0:c496:2381:9cda::15/128 sequence 150 time-range time_range_name2020-01-22-11-52-04; 
-time-range time_range_name2020-01-22-11-52-04; 
+ipv6 access-list wan_inbound_ipv6;  
+permit tcp fda0:c496:2381:9cda::1/128 fda0:c496:2381:9cda::15/128 sequence 150 time-range time_range_name2020-01-22-11-52-04;   
+time-range time_range_name2020-01-22-11-52-04;  
 absolute start 16:31 20 August 2018 end 23:37 05 October 2018
 
 ### 10. Delete firewall rule – Example for Rule included into an IPv4 ACL
@@ -339,7 +339,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"delete","target":{"slpf:rule_numb
 ```
 
 #### Cisco Syntax (executed):
-ip access-list extended wan_inbound; 
+ip access-list extended wan_inbound;  
 no 20
 
 ### 11.	Delete firewall rule – Example for Rule included into an IPv6 ACL
@@ -366,7 +366,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"delete","target":{"slpf:rule_numb
 ```
 
 #### Cisco Syntax (executed):
-ipv6 access-list wan_inbound_ipv6;
+ipv6 access-list wan_inbound_ipv6;  
 no sequence 20
 
 ### 12. Update file – name (of the file) – path (optional)
@@ -392,9 +392,9 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"update","target":{"file":{"name":
 ```
 
 #### Cisco Syntax (executed):
-ip access-list extended wan_inbound;
-permit tcp 10.10.10.10 0.0.0.0 10.10.10.20 0.0.0.0;
-permit tcp 10.10.10.11 0.0.0.0 10.10.10.21 0.0.0.0 eq 80;
+ip access-list extended wan_inbound;  
+permit tcp 10.10.10.10 0.0.0.0 10.10.10.20 0.0.0.0;  
+permit tcp 10.10.10.11 0.0.0.0 10.10.10.21 0.0.0.0 eq 80;  
 permit tcp 10.10.10.12 0.0.0.0 10.10.10.21 0.0.0.0 eq 80
 
 #### Note: 
