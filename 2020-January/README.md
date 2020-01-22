@@ -68,7 +68,7 @@ permit tcp any any 10.10.10.24 0.0.0.0
 Missed source address is treated as any by the iosacl-adapter
 
 
-### 3. Allow ipv4_connection – response requested complete – response requested complete – insert rule
+### 3. Allow ipv4_connection – response requested complete – insert rule
 
 #### Terminal: 
 Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv4_connection":{"protocol":"udp","src_addr":"10.10.10.22","src_port":80,"dst_addr":"10.10.10.23"}},"args":{"response_requested":"complete","slpf":{"insert_rule":100}},"actuator":{"slpf":{"asset_id":"gcp_ipv4"}}}' -a actuators.json
