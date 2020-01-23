@@ -607,7 +607,7 @@ Also, a course of action can include multiple arrays in an array that can be exe
 
 Transfer: Implementing an OpenC2 array over HTTPS for example, would change nothing in the headers utilized. The orchestrator is responsible for tracking the Course of Action.
 
-### Example: Block malicious C2 for “ABC” Malware
+### Example: Block malicious C2 related to “ABC” Malware
 
 #### Terminal:
 Rscript openc2_iosacl_adapter.R -f multiple-commands.json -a actuators.json  
