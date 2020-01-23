@@ -433,6 +433,29 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"allow","target":{"ipv4_connection
 #### Note: 
 OpenC2 Producers MUST populate the Command Arguments field with "response_requested" : "complete" if the insert_rule Argument is populated.
 
+### 14. Query the actuator capability – versions – profiles – pairs (hardcoded in our code in our case)
+
+#### Terminal: 
+Rscript openc2_iosacl_adapter.R -o '{"action":"query","target":{"features":["versions","profiles","pairs"]},"actuator":{"slpf":{"asset_id":"gcp_ipv4"}}}' -a actuators.json
+
+#### JSON:
+```json
+{ 
+  "action":"query",
+  "target":{ 
+    "features":[ 
+      "versions",
+      "profiles",
+      "pairs"
+    ]
+  },
+  "actuator":{ 
+    "slpf":{ 
+      "asset_id":"gcp_ipv4"
+    }
+  }
+}
+```
 
 
 
