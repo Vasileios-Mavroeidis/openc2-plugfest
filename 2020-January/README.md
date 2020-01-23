@@ -487,9 +487,86 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"query","target":{"features":["ver
 ```
 
 
+## Native Support: How an OpenC2 command for a NATIVE Cisco interface may look like
 
+### Example 1
 
+```json
+{
+  "action": "deny",
+  "target": {
+    "ipv4_connection": {
+      "protocol": "tcp",
+      "src_addr": "192.168.1.2",
+      "dst_addr": "192.168.2.2",
+      "dst_port": 80
+    }
+  },
+  "args": {
+    "start_time": 1534775460000,
+    "duration": 50000000,
+    "response_requested": "complete",
+    "slpf": {
+      "drop_process": "none",
+      "vendor_specific": {
+      	"cisco": {
+      		"cisco_acl":{
+      			"cisco_acl_id": "acl_1"
+      		}
+      	}
+      }          
+    }
+  },
+  "actuator": {
+    "slpf": {
+      	"asset_id": "10"
+    }
+  }
+}
+```
+### Example 2
 
+```json
+{
+  "action": "deny",
+  "target": {
+    "ipv4_connection": {
+      "protocol": "tcp",
+      "src_addr": "192.168.1.2",
+      "dst_addr": "192.168.2.2",
+      "dst_port": 80
+    }
+  },
+  "args": {
+    "response_requested": "complete",
+    "slpf": {
+      "drop_process": "none",
+      "vendor_specific": {
+      	"cisco": {
+      		"cisco_acl":{
+      			"cisco_acl_id": "acl_1",
+			      "time_range":"mon_wed_fri"
+      		}
+      	}
+      }          
+    }
+  },
+  "actuator": {
+    "slpf": {
+      	"asset_id": "10"
+    }
+  }
+}
+```
 
+### Explanation and Remarks
 
+* Cisco ACLs are attached on an interface, for example Fast Ethernet 01 (is not needed in an OpenC2 command).
+*	When you define an ACL you need to specify if it will include IPv4 addresses or IPv6 addresses. So trying to submit an IPv4 rule into an IPv6 ACL will fail.
+* Directionality is specified when the ACL is attached on an interface (is not needed in an OpenC2 command).
+* A command needs to include the name of the ACL. Multiple ACLs may have been configured on a router. The device when getting the OpenC2 command should be able to differentiate between IPv4 and IPv6 list only with the name that is part of the OpenC2 command.
+* Persistence can be included in the command, but a Cisco router saves the whole running configuration based on the copy running-config startup-config command. So, not each rule submitted individually. Unexpected behavior may result out of this.
+* Temporality can be included (absolute in the terminology of Cisco - OpenC2 supports only start time, stop time, and duration, and not periodicity) by introducing time-range lists. Two ways to do that have been identified: First, you can include the traditional time arguments in the OpenC2 command (Example 1). The Cisco device should be able to check if a time list with identical time parameters exists. If yes, then attach the time-range list on the rule submitted. If not, create a new time-range list and attach it on the rule submitted. Second, a new argument should be defined as part of an OpenC2 command that specifies the name of the time-range list (Example 2). That means that a human analyst already has knowledge of the time-range lists, or the orchestrator has the capability of receiving this information “formally” from the actuator.
 
+### Note:
+Extending the query:features command is a viable solution to accommodate such cases as the aforementioned where an orchestrator needs extra information for populating OpenC2 commands without human intervention  – also the arguments of the action/target pairs should be identified and all of the above most probably be part of the arguments included in the OpenC2 command.
