@@ -456,7 +456,35 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"query","target":{"features":["ver
   }
 }
 ```
-
+#### Response from iosacl-adapter:
+```json
+{
+  "status": "200",
+  "results": {
+    "versions": "1.0",
+    "profiles": "slpf",
+    "pairs": {
+      "allow": [
+        "ipv4_connection",
+        "ipv6_connection"
+      ],
+      "deny": [
+        "ipv4_connection",
+        "ipv6_connection"
+      ],
+      "query": [
+        "features"
+      ],
+      "update": [
+        "file"
+      ],
+      "delete": [
+        "slpf:rule_number"
+      ]
+    }
+  }
+} 
+```
 
 
 
