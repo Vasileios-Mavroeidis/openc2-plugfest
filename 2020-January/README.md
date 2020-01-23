@@ -1,7 +1,7 @@
 # OpenC2 Plugfest - University of Oslo
 January 27 & 28, 2020
 
-
+For more information about OpenC2 please visit the [OpenC2 Official Technical Committee Web Page](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2)
 ## Use Case 
 The iosacl-adapter accepts OpenC2 commands that conform to the SLPF Specification and executes those commands on Cisco devices (IOS and IOS-XE) that support Access Control Lists (ACL) for packet filtering.
 
