@@ -595,11 +595,11 @@ Case 2: The commands are similar and do require conditional logic for execution.
 
 •	Another way would be to create a new object that can accommodate the JSON array such as:
 
-```json
+```
 {
 "sequence": true
 "openc2_array_id": "UUIDv4"
-"openc2_array":[{OpenC2 command 1},{OpenC2 command 2},{OpenC2 command n}]
+"openc2_array":[{OpenC2 Command 1},{OpenC2 Command 2},{OpenC2 Command n}]
 }
 ```
 
@@ -608,6 +608,9 @@ Also, a course of action can include multiple arrays in an array that can be exe
 Transfer: Implementing an OpenC2 array over HTTPS for example, would change nothing in the headers utilized. The orchestrator is responsible for tracking the Course of Action.
 
 ### Example: Block malicious C2 for “ABC” Malware
+
+#### Terminal:
+Rscript openc2_iosacl_adapter.R -f multiple-commands.json -a actuators.json  
 
 #### JSON:
 ```json
@@ -646,9 +649,7 @@ Transfer: Implementing an OpenC2 array over HTTPS for example, would change noth
   }
 ]
 ```
-#### Terminal:
-Rscript openc2_iosacl_adapter.R -f multiple-commands.json -a actuators.json
 
-Concerns: The impact that an unsuccessful command may have in respect to the previously consumed commands in a target system and the halted executions therefore.
+**Concerns:** The impact that an unsuccessful command may have in respect to the previously consumed commands in a target system and the halted executions therefore.
 
 
