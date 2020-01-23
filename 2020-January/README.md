@@ -545,7 +545,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"query","target":{"features":["ver
       	"cisco": {
       		"cisco_acl":{
       			"cisco_acl_id": "acl_1",
-			      "time_range":"mon_wed_fri"
+			"time_range":"mon_wed_fri"
       		}
       	}
       }          
