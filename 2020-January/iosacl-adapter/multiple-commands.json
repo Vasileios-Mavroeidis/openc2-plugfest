@@ -1,0 +1,34 @@
+[ 
+  { 
+    "action":"deny",
+    "target":{ 
+      "ipv4_connection":{ 
+        "protocol":"tcp",
+        "src_addr":"192.168.1.2",
+        "dst_addr":"192.168.2.2",
+        "dst_port":80
+      }
+    },
+    "actuator":{ 
+      "slpf":{ 
+        "asset_id":"gcp_ipv4"
+      }
+    }
+  },
+  { 
+    "action":"deny",
+    "target":{ 
+      "ipv4_connection":{ 
+        "protocol":"tcp",
+        "src_addr":"192.168.1.2",
+        "dst_addr":"192.168.2.3",
+        "dst_port":80
+      }
+    },
+    "actuator":{ 
+      "slpf":{ 
+        "asset_id":"gcp_ipv4"
+      }
+    }
+  }
+]
