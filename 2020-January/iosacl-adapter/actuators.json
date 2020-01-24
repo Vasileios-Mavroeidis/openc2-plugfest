@@ -6,7 +6,7 @@
          "network":{ 
             "hostname":"xx",
             "port":22,
-            "username":"root",
+            "username":"xx",
             "acl_id":"wan_inbound",
             "acl_type":"ipv4"
          }
@@ -17,7 +17,7 @@
          "network":{ 
             "hostname":"xx",
             "port":22,
-            "username":"root",
+            "username":"xx",
             "acl_id":"wan_inbound_ipv6",
             "acl_type":"ipv6"
          }
