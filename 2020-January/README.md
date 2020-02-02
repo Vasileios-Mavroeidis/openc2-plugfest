@@ -14,6 +14,12 @@ For more details please visit: https://github.com/oasis-open/openc2-iosacl-adapt
 
 Note: this tool is not a native interface for Cisco devices or is supported by Cisco.
 
+## UPDATED Results After the PlugFest
+
+The iosacl-adapter demonstrated successful integration of the OpenC2 Stateless Packet Fitering Specification with the purpose of controlling ACLs in Cisco devices. Three other implementations for Firewalls were demonstrated. University of North Carolina (Alex Everett) implemented SLPF on Linux Iptables, ATT&T (Michael Stair) presented an adapter for configuring the packet filters of Amazon, Google, and Microsoft cloud platforms using OpenDXL for transport, Cyber Defense Institute of Japan (Lauri Korts-Pärn) presented an SLPF integration for firewalld. ATT&T to experiment and prove also that the PoCs are interoperable created a one way bridge for communicationg messages from OpenDXL to HTTPS and also been able to get back the responses. A high level diagram of the implementation and integration is presented right below.
+![](images/openc2-plugfest-firewall-integration.png)
+
+
 ## Test Commands
 
 ### 1. Check if the Actuator is alive
