@@ -16,7 +16,7 @@ Case 2: The commands are similar and do require conditional logic for execution.
 
 •	Potential Solution: An entity should identify how to process the commands. For example if the sequence or the execution of a command is directly related with the successful execution of a previous command, then we can use the response codes as an indication, where a 200 code allows us to process and execute the next command in the array, and a failed command stops the execution.
 
-•	Very important is how the response codes are generated. For example, for a COA, such as scan a system for a particular malicious process (hash) and in the case where it is identified then investigate and remediate. The action scan is successful (200) regardless if the process was identified as long as the scan was completed as an operation. The result, positive or negative should be unrelated with the code, but maybe as part of the status text or extra an extra property. A 200 code will allow the orchestrator to forward the second command.
+•	Very important is how the response codes are generated. For example, for a COA, such as scan a system for a particular malicious process (hash) and in the case where it is identified then investigate and remediate. The action scan is successful (200) regardless if the process was identified as long as the scan was completed as an operation. The result, positive or negative should be unrelated with the code, but maybe as part of the status text or a newly defined element. A 200 code will allow the orchestrator to forward the second command.
 
 •	Another way would be to create a new object that can accommodate the JSON array such as:
 
