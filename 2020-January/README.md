@@ -3,7 +3,7 @@ January 27 & 28, 2020
 
 For more information about OpenC2 please visit the [OpenC2 Official Technical Committee Web Page](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2)
 ## Use Case 
-The iosacl-adapter accepts OpenC2 commands that conform to the SLPF Specification and executes those commands on Cisco devices (IOS and IOS-XE) that support Access Control Lists (ACL) for packet filtering.
+The openc2-iosacl-adapter accepts OpenC2 commands that conform to the SLPF Specification and executes those commands on Cisco devices (IOS and IOS-XE) that support Access Control Lists (ACL) for packet filtering.
 
 In this particular use case, we control a Cisco Cloud Service Router (CSR1000V with Cisco IOS XE Software, Version 16.12.01a) in the Google Cloud Platform.
 
@@ -16,7 +16,7 @@ Note: this tool is not a native interface for Cisco devices or is supported by C
 
 ## UPDATED Results After the PlugFest
 
-The iosacl-adapter demonstrated successful integration of the OpenC2 SLPF Specification for the purpose of controlling ACLs in Cisco devices. Three other implementations related to Firewalls were demonstrated. University of North Carolina (Alex Everett) implemented SLPF on Linux Iptables, AT&T (Michael Stair) presented an adapter for configuring the packet filters of Amazon, Google, and Microsoft cloud platforms using OpenDXL for transport, Cyber Defense Institute of Japan (Lauri Korts-Pärn) presented an SLPF integration for firewalld. For the implementations to interoperate, AT&T created a one way HTTPS bridge for communicating messages from OpenDXL to HTTPS and also receiving response messages. The bridge was developed for the PoCs that were accepting OpenC2 commands through a HTTP listener. The iosacl-adapter communicated through OpenDXL. A high-level diagram of the implementation is presented right below.
+The openc2-iosacl-adapter demonstrated successful integration of the OpenC2 SLPF Specification for the purpose of controlling ACLs in Cisco devices. Three other implementations related to Firewalls were demonstrated. University of North Carolina (Alex Everett) implemented SLPF on Linux Iptables, AT&T (Michael Stair) presented an adapter for configuring the packet filters of Amazon, Google, and Microsoft cloud platforms using OpenDXL for transport, Cyber Defense Institute of Japan (Lauri Korts-Pärn) presented an SLPF integration for firewalld. For the implementations to interoperate, AT&T created a one way HTTPS bridge for communicating messages from OpenDXL to HTTPS and also receiving response messages. The bridge was developed for the PoCs that were accepting OpenC2 commands through a HTTP listener. The openc2-iosacl-adapter communicated through OpenDXL. A high-level diagram of the implementation is presented right below.
 ![](images/openc2-plugfest-firewall-integration.png)
 
 
@@ -71,7 +71,7 @@ ip access-list extended wan_inbound;
 permit tcp any any 10.10.10.24 0.0.0.0
 
 #### Note:
-Missed source address is treated as any by the iosacl-adapter
+Missed source address is treated as any by the openc2-iosacl-adapter
 
 
 ### 3. Allow ipv4_connection – response requested complete – insert rule
@@ -462,7 +462,7 @@ Rscript openc2_iosacl_adapter.R -o '{"action":"query","target":{"features":["ver
   }
 }
 ```
-#### Response from iosacl-adapter:
+#### Response from openc2-iosacl-adapter:
 ```json
 {
   "status": "200",
