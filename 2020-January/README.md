@@ -16,8 +16,8 @@ Note: this tool is not a native interface for Cisco devices or is supported by C
 
 ## UPDATED Results After the PlugFest
 
-The openc2-iosacl-adapter demonstrated successful integration of the OpenC2 SLPF Specification for the purpose of controlling ACLs in Cisco devices. Three other implementations related to Firewalls were demonstrated. University of North Carolina (Alex Everett) implemented SLPF on Linux Iptables, AT&T (Michael Stair) presented an adapter for configuring the packet filters of Amazon, Google, and Microsoft cloud platforms using OpenDXL for transport, Cyber Defense Institute of Japan (Lauri Korts-Pärn) presented an SLPF integration for firewalld. For the implementations to interoperate, AT&T created a one way HTTPS bridge for communicating messages from OpenDXL to HTTPS and also receiving response messages. The bridge was developed for the PoCs that were accepting OpenC2 commands through a HTTP listener. The openc2-iosacl-adapter communicated through OpenDXL. A high-level diagram of the implementation is presented right below.
-![](images/openc2-plugfest-firewall-integration.png)
+The openc2-iosacl-adapter demonstrated successful integration of the OpenC2 SLPF Specification for the purpose of controlling ACLs in Cisco devices. Three other implementations related to Firewalls were demonstrated. University of North Carolina (Alex Everett) implemented SLPF on Linux Iptables, AT&T (Michael Stair) presented an adapter for configuring the packet filters of Amazon, Google, and Microsoft cloud platforms using OpenDXL for transport, Cyber Defense Institute of Japan (Lauri Korts-Pärn) presented an SLPF integration for firewalld. For the implementations to interoperate, AT&T created a protocol bridge for communicating messages from OpenDXL to HTTPS and also receiving response messages (for the implementations that had an HTTP listener activated). The openc2-iosacl-adapter communicated through OpenDXL. A high-level diagram of the implementation is presented right below.
+![](images/openc2-plugfest-fw-integration.png)
 
 
 ## Test Commands
