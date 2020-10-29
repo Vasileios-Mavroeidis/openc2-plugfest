@@ -1,1 +1,0 @@
-Folder that includes images
