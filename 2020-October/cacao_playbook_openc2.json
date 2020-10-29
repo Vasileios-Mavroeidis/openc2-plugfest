@@ -1,0 +1,48 @@
+{
+    "type": "playbook",
+    "spec_version": "1.0",
+    "id": "playbook--uuid1",
+    "name": "Enrich IP IOC",
+    "description": "This playbook enriches IP IOCs",
+    "playbook_types": [
+        "investigation"
+    ],
+    "created_by": "identity--uuid1",
+    "created": "2020-10-28T15:56:00.123456Z",
+    "modified": "2020-10-28T15:56:00.123456Z",
+    "revoked": false,
+    "playbook_variables": {
+        "$$ipv4": {
+            "type": "ipv4-addr",
+            "description": "The IP we are going to check",
+            "constant": false,
+            "external": true
+        },
+        "$$asn": {
+            "type": "string",
+            "constant": false,
+            "external": true
+        }
+    },
+    "workflow_start": "step-xx1",
+    "workflow": {
+        "step-xx1": {
+            "type": "single",
+            "name": "query-ipv4",
+            "description": "Retrieve Autonomous System Number for an IPv4 Address",
+            "in_args": "$$ipv4",
+            "out_args": "$$asn",
+            "commands": [
+                {
+                    "type": "openc2-json",
+                    "command": "{\"action\":\"query\", \"target\":{ \"ipv4_net\":\"1.2.3.4\" }, \"args\":{ \"response_requested\":\"complete\" }, \"actuator\":{ \"asset_id\":\"service-whois-1\" }}"
+                }
+            ],
+            "on_completion": "step-xx2"
+        }
+    },
+    "step-xx2": {
+        "type": "end",
+        "name": "End Playbook"
+    }
+}
