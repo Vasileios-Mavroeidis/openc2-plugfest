@@ -8,4 +8,4 @@ In particular, a use case where a CACAO Playbook integrates an OpenC2 command fo
 
 ![](images/cacao-playbook-slide-1.png)
 
-![](images/cacao-playbook-slide-2.png)
+![](images/cacao-playbook-slide-2-updated.png)
